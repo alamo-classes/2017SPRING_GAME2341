@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ISG_Level01_Lost.unity
+- path: Assets/Scenes/ISG_Level01_Game.unity
   isLoaded: 1
   isActive: 1
