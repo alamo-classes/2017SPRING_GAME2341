@@ -11,9 +11,9 @@ public class ShowMouse : MonoBehaviour {
         Cursor.visible = true;
 	}
     
-    void OnLevelWasLoaded(int level)
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }	
+//    void OnLevelWasLoaded(int level)
+//    {
+//        Cursor.lockState = CursorLockMode.None;
+//        Cursor.visible = true;
+//    }	
 }

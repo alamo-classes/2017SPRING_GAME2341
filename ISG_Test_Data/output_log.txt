@@ -6,10 +6,6 @@ Direct3D:
     Vendor:   NVIDIA
     VRAM:     3072 MB
     Driver:   21.21.13.7849
-FMOD failed to initialize the output device, attempting to initialize the null output.
- 
-(Filename:  Line: 1091)
-
 Begin MonoManager ReloadAssembly
 Platform assembly: D:\Game\2341_Script\Game2341_YBProject\ISG_Test_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading D:\Game\2341_Script\Game2341_YBProject\ISG_Test_Data\Managed\UnityEngine.dll into Unity Child Domain
@@ -23,24 +19,44 @@ Platform assembly: D:\Game\2341_Script\Game2341_YBProject\ISG_Test_Data\Managed\
 Loading D:\Game\2341_Script\Game2341_YBProject\ISG_Test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: D:\Game\2341_Script\Game2341_YBProject\ISG_Test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading D:\Game\2341_Script\Game2341_YBProject\ISG_Test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.100 seconds
+- Completed reload, in  0.087 seconds
 Platform assembly: D:\Game\2341_Script\Game2341_YBProject\ISG_Test_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Game\2341_Script\Game2341_YBProject\ISG_Test_Data\Managed\System.dll (this message is harmless)
-OnLevelWasLoaded was found on ShowMouse
-This message has been deprecated and will be removed in a later version of Unity.
-Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
- 
-(Filename:  Line: 382)
-
-desktop: 3840x2160 30Hz; virtual: 7680x2160 at 0,0
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.268009 ms
+UnloadTime: 1.226754 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 3710 -> priority: 1 
-  Thread -> id: 4fc -> priority: 1 
-Exit
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+  Thread -> id: 2afc -> priority: 1 
+  Thread -> id: 2f30 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.159821 ms
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 620.
+Total: 0.479911 ms (FindLiveObjects: 0.047250 ms CreateObjectMapping: 0.022567 ms MarkObjects: 0.203459 ms  DeleteObjects: 0.206280 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 19.123117 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 622.
+Total: 0.565244 ms (FindLiveObjects: 0.029619 ms CreateObjectMapping: 0.020804 ms MarkObjects: 0.183713 ms  DeleteObjects: 0.330754 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 10.209316 ms
+
+Unloading 252 unused Assets to reduce memory usage. Loaded Objects now: 352.
+Total: 5.855908 ms (FindLiveObjects: 0.080396 ms CreateObjectMapping: 0.090269 ms MarkObjects: 0.461928 ms  DeleteObjects: 5.222608 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.379415 ms
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 625.
+Total: 0.420671 ms (FindLiveObjects: 0.034203 ms CreateObjectMapping: 0.021157 ms MarkObjects: 0.167845 ms  DeleteObjects: 0.197112 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 10.258683 ms
+
+Unloading 252 unused Assets to reduce memory usage. Loaded Objects now: 352.
+Total: 1.441850 ms (FindLiveObjects: 0.027504 ms CreateObjectMapping: 0.021509 ms MarkObjects: 0.154446 ms  DeleteObjects: 1.238037 ms)
 
