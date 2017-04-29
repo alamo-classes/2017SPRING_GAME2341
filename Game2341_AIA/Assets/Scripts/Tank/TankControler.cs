@@ -1,69 +1,111 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 using System.Collections;
 
+//Tank controller class controll tank movement via navmesh and 
+//   firing / attacking the player.
 public class TankControler : MonoBehaviour
 {
-//    public float landSpeed = 1.0f;
-//    public float waterSpeed = 0.3f;
-//    private GameObject tankTarget;
+   public float landSpeed = 4.0f;
+   public float reloadTime = 5.0f; //Time between targeting and shooting
+   public Transform tankTarget;    //Usually the player
+   public int damagePerShot = 10;  //Damage to PlayerHeath health if Player hit.
+   public float range = 200f;
+
+   private float timer = 0.0f;
+   private NavMeshAgent tankDriver;
+   //private Transform thisTank;
+
+   private Ray shootRay;
+   private RaycastHit shootHit;
+   private ParticleSystem gunParticles;
+   private LineRenderer gunLine; //used in fire animation
+   private Light muzzleFlash;
+   //private bool shooting = false;
+
+   // Initialize values and navmesh agent on tank
+   //   Start the tank moveing towards the player
+   void Start ()
+   {
+      tankTarget = GameObject.FindGameObjectWithTag ("Player").transform;
+      gunLine = GetComponent<LineRenderer> ();
+      muzzleFlash = GetComponent<Light> ();
+      muzzleFlash.enabled = false;
+
+      tankDriver = GetComponent<NavMeshAgent> ();
+      tankDriver.speed = landSpeed;
+      tankDriver.destination = tankTarget.position;
+   }
+
+   // Retartget on current player's position and shot if in range
+   //   Shoot once every retarget check - reload time.
+   void Update ()
+   {
+      timer += Time.deltaTime;
+      if (timer >= reloadTime)
+      {
+         timer = 0f;
+         // Aim the tank at the new player position
+         tankDriver.destination = tankTarget.position;
+//         if (!shooting)
+//         {
+//            shooting = (getDistance () < range);
+//            if (shooting)
+//            {
+//               checkTime = reloadTime;
+//               //Debug.Log (shooting);
+//            }
+//         } else
+//         {
+//            if (!tnkCntlr.inWater)
+//            {
+////        Debug.Log ("tank attack " + tnkCntlr.inWater);
+//               shoot ();
+//            }
+//         }
+      }
+   }
+
+//   void shoot ()
+//   {
+//      StartCoroutine (ShotEffect ());
+//      gunLine.SetPosition (0, transform.position);
 //
-//    public bool inWater = false;
-//    private Transform thisTank;
-//    private float tankSpeed;
+//      shootRay.origin = transform.position;
+//      shootRay.direction = transform.forward;
 //
-//    void Start()
-//    {
-//        tankTarget = GameObject.FindGameObjectWithTag("Player");
-//        thisTank = transform;
-//        tankSpeed = landSpeed;
-//    }
+//      if (Physics.Raycast (shootRay.origin, shootRay.direction, out shootHit, range))
+//      {
+////        Debug.Log ("tank attack: " + shootHit.collider.ToString () + " " + tnkCntlr.inWater);
+////         PlayerHealth health = shootHit.collider.GetComponent<PlayerHealth> ();
+////         if (health != null)
+////         {
+////            health.TakeDamage (damagePerShot);
+////         }
+////         gunLine.SetPosition (1, shootHit.point);
+//      } else
+//      {
+//         gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
+//      }
+//   }
 //
-//    void FixedUpdate()
-//    { // move to and shoot at target
-//        float travel = tankSpeed * Time.fixedDeltaTime;
-//        turnToTarget();
-//        thisTank.position = Vector3.MoveTowards(thisTank.position, tankTarget.transform.position, travel);
-//    }
+//   private float getDistance ()
+//   {
+//      float distance = Vector3.Distance (tankTarget.transform.position, transform.position);
+//      return distance;
+//   }
 //
-//    void OnCollisionEnter(Collision objct)
-//    {
-//		if(objct.gameObject.tag == "Player")
-//		{
-//			tankSpeed = 0;
-//		}
-//	}
+//   private IEnumerator ShotEffect ()
+//   {
+//      // Turn on our line renderer
+//      gunLine.enabled = true;
+//      muzzleFlash.enabled = true;
 //
-//	void OnTriggerEnter(Collider objct)
-//	{
-//		if(objct.gameObject.tag == "Water")
-//		{
-//			inWater = true;
-//			tankSpeed = waterSpeed;
-//			this.tag = "TankWet";
-//		}
-//	}
+//      //Wait for .07 seconds
+//      yield return shotDuration;
 //
-//    void OnCollisionExit(Collision objct)
-//    {
-//		if(objct.gameObject.tag == "Player")
-//		{
-//			tankSpeed = landSpeed;
-//		}
-//	}
-//
-//	void OnTriggerExit(Collider objct)
-//	{
-//		if(objct.gameObject.tag == "Water")
-//		{
-//			inWater = false;
-//			tankSpeed = landSpeed;
-//			this.tag = "EnemyTank";
-//		}
-//	}
-//
-//    void turnToTarget()
-//    {
-//        thisTank.rotation = Quaternion.LookRotation(tankTarget.transform.position - thisTank.position);
-//        thisTank.Rotate(0, -90, 0);
-//    }
+//      // Deactivate our line renderer after waiting
+//      gunLine.enabled = false;
+//      muzzleFlash.enabled = false;
+//   }
 }
