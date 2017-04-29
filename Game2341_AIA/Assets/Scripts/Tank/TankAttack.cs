@@ -2,8 +2,7 @@
 using UnityEngine.AI;
 using System.Collections;
 
-//Tank controller class controll tank movement via navmesh and 
-//   firing / attacking the player.
+//Tank Attack class does firing / attacking the player.
 public class TankAttack : MonoBehaviour
 {
    public float reloadTime = 5.0f; //Time between targeting and shooting
@@ -64,12 +63,12 @@ public class TankAttack : MonoBehaviour
       if (Physics.Raycast (thisTank.position, heading.normalized, out shootHit, range))
       {
          //Debug.Log ("tank attack: " + shootHit.collider.ToString ());
-         //PlayerHealth health = shootHit.collider.GetComponent<PlayerHealth> ();
-//         if (health != null)
-//         {
-//            health.TakeDamage (damagePerShot);
-//         }
-         gunLine.SetPosition (1, shootHit.point);
+         PlayerHealth health = shootHit.collider.GetComponent<PlayerHealth> ();
+         if (health != null)
+         {
+            health.TakeDamage (damagePerShot);
+         }
+
       } else
       {
          gunLine.SetPosition (1, thisTank.position + heading.normalized * range);

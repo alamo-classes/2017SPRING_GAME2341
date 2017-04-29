@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; //load scenes
 
-public class PlayerHeath : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour {
 
 	public float startingHealth = 10f;
 	public Slider healthSlider; //access slider
@@ -22,19 +22,16 @@ public class PlayerHeath : MonoBehaviour {
 	{
 		playerController = GetComponent <PlayerController> ();
 		mouseLook = GetComponent <MouseLook> ();
-
 		currentHealth = startingHealth;
 		SetHealthUI (); //update UI
-
 		isDead = false;
 	}
 
 	public void TakeDamage(float amount) //set up health
 	{
 		currentHealth -= amount;
-
 		SetHealthUI ();
-
+		//Debug.Log ("PH " + currentHealth + " " + amount );
 		if (currentHealth <= 0f && !isDead) 
 		{
 			OnDeath ();
