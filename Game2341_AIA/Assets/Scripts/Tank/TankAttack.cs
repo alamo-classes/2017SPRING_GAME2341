@@ -56,7 +56,7 @@ public class TankAttack : MonoBehaviour
 	void shoot ()
 	{
 		//turnToTarget (); // correct for navemesh errors
-		StartCoroutine (ShotEffect ());
+		StartCoroutine (shotEffect ());
 		gunLine.SetPosition (0, thisTank.position);
 
 		//transform.position;
@@ -88,7 +88,7 @@ public class TankAttack : MonoBehaviour
 		return distance;
 	}
 
-	private IEnumerator ShotEffect ()
+	private IEnumerator shotEffect ()
 	{
 		// Turn on our line renderer
 		gunLine.enabled = true;

@@ -8,7 +8,8 @@ public class PlayerHealth : MonoBehaviour {
 
 	public float startingHealth = 10f;
 	public Slider healthSlider; //access slider
-	public Image FillImage;
+	public Image hitImage;
+
 	public Color fullHealthColor = Color.green;
 	public Color zeroHealthColor = Color.red;
 
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		playerController = GetComponent <PlayerController> ();
 		mouseLook = GetComponent <MouseLook> ();
+		hitImage.enabled = false;
 		currentHealth = startingHealth;
 		SetHealthUI (); //update UI
 		isDead = false;
@@ -31,6 +33,7 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		currentHealth -= amount;
 		SetHealthUI ();
+		StartCoroutine (flashHit());
 		//Debug.Log ("PH " + currentHealth + " " + amount );
 		if (currentHealth <= 0f && !isDead) 
 		{
@@ -41,9 +44,8 @@ public class PlayerHealth : MonoBehaviour {
 	private void SetHealthUI()
 	{
 		healthSlider.value = currentHealth;
-
-		FillImage.color = 
-			Color.Lerp (zeroHealthColor, fullHealthColor, currentHealth / startingHealth);
+		//fillImage.color = 
+		//	Color.Lerp (zeroHealthColor, fullHealthColor, currentHealth / startingHealth);
 	}
 
 	private void OnDeath()
@@ -54,5 +56,17 @@ public class PlayerHealth : MonoBehaviour {
 		mouseLook.enabled = false;
 
 		SceneManager.LoadScene ("ISG_Level01_Lost");
+	}
+
+	private IEnumerator flashHit()
+	{
+		// Turn on our line renderer
+		hitImage.enabled = true;
+
+		//Wait for .07 seconds
+		yield return new WaitForSecondsRealtime(.1f);
+
+		// Deactivate our line renderer after waiting
+		hitImage.enabled = false;
 	}
 }
