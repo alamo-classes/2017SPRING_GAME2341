@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement; //load scenes
 
 public class PlayerHealth : MonoBehaviour {
 
-	public float startingHealth = 10f;
+	public float startingHealth = 100f;
 	public Slider healthSlider; //access slider
 	public Image hitImage;
 
@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour {
 	MouseLook mouseLook; //can't move camera when health hits zero
 
 	private float currentHealth;
-	private bool isDead;
+	public static bool isDead;
 
 	void Awake()
 	{

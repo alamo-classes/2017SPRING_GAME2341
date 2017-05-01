@@ -94,7 +94,7 @@ public class TankAttack : MonoBehaviour
 		gunLine.enabled = true;
 		muzzleFlash.enabled = true;
 
-		//Wait for .07 seconds
+		//Wait for .x seconds
 		yield return new WaitForSecondsRealtime(.1f);
 
 		// Deactivate our line renderer after waiting
