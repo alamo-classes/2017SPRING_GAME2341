@@ -92,7 +92,8 @@ public class TankHealth : MonoBehaviour
 
 		//yield return playTime;
 
-		// Turn the tank off.
+		// Destroy the tank.
+		//gameObject.SetActive (false);
 		gameObject.SetActive (false);
 	}
 }
