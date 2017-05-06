@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+//Very modified from Unity tutorialo by T. Womack
 public class TankHealth : MonoBehaviour
 {
 	public float startingHealth = 12f;

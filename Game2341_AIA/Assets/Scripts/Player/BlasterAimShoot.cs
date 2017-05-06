@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
+//T. Womack 9-2016, 4-2017
 public class BlasterAimShoot : MonoBehaviour
 {
 	public int gunDamage = 5;

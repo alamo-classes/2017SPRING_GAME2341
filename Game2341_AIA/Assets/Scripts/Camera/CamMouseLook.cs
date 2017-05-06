@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//T. Womack 9-2016, 4-2017
 public class CamMouseLook : MonoBehaviour
 {
     private Vector2 mouseLook;

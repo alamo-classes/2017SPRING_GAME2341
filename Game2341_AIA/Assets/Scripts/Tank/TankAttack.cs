@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//T. womack 9/2016 -5/2017
+using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 

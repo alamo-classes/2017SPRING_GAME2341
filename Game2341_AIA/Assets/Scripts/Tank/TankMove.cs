@@ -32,6 +32,7 @@ public class TankMove : MonoBehaviour
          // Aim the tank at the new player position
          tankDriver.destination = tankTarget.position;
       }
+		//Don't run over the player
       if (getDistance () < 10)
          tankDriver.speed = 0;
       else
